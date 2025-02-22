@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { FiSearch, FiUser, FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Header({ bgColor, txtColor }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -33,12 +34,19 @@ export default function Header({ bgColor, txtColor }) {
             </Link>
           </nav>
 
-          {/* Desktop Icons */}
           <div className="hidden md:flex space-x-3">
             {[FiSearch, FiUser, FiShoppingCart].map((Icon, index) => (
               <div
                 key={index}
-                className={`bg-${txtColor} text-${bgColor} p-2 rounded-full  cursor-pointer`}
+                onClick={() => {
+                  if (index === 0) {
+                    navigate("/search"); // Redirects to search page
+                  } else if (index === 1) {
+                    navigate("/sign-up"); // Redirects to signUp page
+                  }
+                  // No action needed for the shopping cart icon (index 2) for now
+                }}
+                className={`bg-${txtColor} text-${bgColor} p-2 rounded-full cursor-pointer`}
               >
                 <Icon className="lg:w-5 lg:h-5 md:w-4 md:h-4" />
               </div>
@@ -63,25 +71,26 @@ export default function Header({ bgColor, txtColor }) {
             className={`md:hidden absolute top-16 left-0 w-full bg-${bgColor} shadow-lg transition-all`}
           >
             <nav className="hidden md:flex space-x-6">
-            <Link to="/" className="hover:text-gray-500">
-              Home
-            </Link>
-            <Link to="/shop" className="hover:text-gray-500">
-              Shop
-            </Link>
-            <Link to="/about-us" className="hover:text-gray-500">
-              About Us
-            </Link>
-            <Link to="/contact-us" className="hover:text-gray-500">
-              Contact Us
-            </Link>
-          </nav>
+              <Link to="/" className="hover:text-gray-500">
+                Home
+              </Link>
+              <Link to="/shop" className="hover:text-gray-500">
+                Shop
+              </Link>
+              <Link to="/about-us" className="hover:text-gray-500">
+                About Us
+              </Link>
+              <Link to="/contact-us" className="hover:text-gray-500">
+                Contact Us
+              </Link>
+            </nav>
 
             {/* Mobile Icons */}
             <div className="flex justify-center space-x-3 pb-4">
               {[FiSearch, FiUser, FiShoppingCart].map((Icon, index) => (
                 <div
                   key={index}
+                  onClick={() => index === 0 && navigate("/search")} // Redirects to search page
                   className={`bg-${txtColor} text-${bgColor} p-2 rounded-full  cursor-pointer`}
                 >
                   <Icon className="w-5 h-5" />

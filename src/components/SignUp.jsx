@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div className="flex flex-col lg:flex-row h-screen pt-4 md:pt-0">
@@ -19,9 +21,7 @@ const SignUp = () => {
       <div className="w-full lg:w-1/2 flex flex-col justify-center items-center px-6 sm:px-12">
         {/* Logo */}
         <div className="mb-6">
-          <div className="w-25 h-25 bg-black text-white flex items-center justify-center rounded-full text-2xl font-bold ">
-            Logo
-          </div>
+        <img src="/images/logo.svg" alt="Logo" className="w-30 h-30" />
         </div>
 
         {/* Welcome Text */}
@@ -87,8 +87,11 @@ const SignUp = () => {
         </form>
 
         {/* Login Link */}
-        <p className="text-gray-600 text-md mt-4">
-          Have an account? <a href="#" className="text-[#103F51] font-semibold border-b">Log in.</a>
+        <p className="text-gray-400 text-md mt-4">
+          Have an account?<a
+        onClick={() => navigate("/sign-in")} // Redirects to the login page
+        className="text-[#103F51] font-semibold underline cursor-pointer"
+      >Log in.</a>
         </p>
       </div>
     </div>

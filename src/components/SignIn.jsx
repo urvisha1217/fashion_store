@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div className="flex flex-col lg:flex-row h-screen">
@@ -21,7 +23,7 @@ const SignIn = () => {
       <div className="w-full lg:w-1/2 flex flex-col justify-center items-center px-6 sm:px-12">
         {/* Logo */}
         <div className="mb-6">
-          <img src="/images/logo.png" alt="Logo" className="w-16 h-16" />
+          <img src="/images/logo.svg" alt="Logo" className="w-30 h-30" />
         </div>
 
         {/* Welcome Text */}
@@ -77,9 +79,12 @@ const SignIn = () => {
         </div>
 
         {/* Sign Up Link */}
-        <p className="text-gray-400 text-sm mt-4">
+        <p className="text-gray-400 text-md mt-4">
           Don't have an account?{" "}
-          <a href="#" className="text-[#103F51] font-semibold underline">
+          <a
+        onClick={() => navigate("/sign-up")} // Redirects to the login page
+        className="text-[#103F51] font-semibold underline cursor-pointer"
+      >
             Sign up.
           </a>
         </p>

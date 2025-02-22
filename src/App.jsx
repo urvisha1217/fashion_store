@@ -10,15 +10,20 @@ import ChooseCategory from "./components/ChooseCategory";
 import BestSellingProduct from "./components/BestSellingProduct";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
+import SearchComponent from "./components/SearchComponent";
+import ProductPage from "./components/ProductPage";
+import SingleProductPage from "./components/SingleProductPage";
 function App() {
   return (
     <Router>
       {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/search" element={<SearchComponent />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/shop" element={<ProductPage />}/>
+        <Route path="/product" element={<SingleProductPage />}/>
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/new-product" element={<NewProduct />} />
