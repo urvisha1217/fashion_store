@@ -68,19 +68,19 @@ export default function Header({ bgColor, txtColor }) {
         {/* Mobile Navigation */}
         {menuOpen && (
           <div
-            className={`md:hidden absolute top-16 left-0 w-full bg-${bgColor} shadow-lg transition-all`}
+            className={`md:hidden absolute top-16 left-0 w-full bg-${bgColor} shadow-lg transition-all `}
           >
-            <nav className="hidden md:flex space-x-6">
-              <Link to="/" className="hover:text-gray-500">
+            <nav className="flex md:flex-row flex-col  items-center space-y-4 p-4 ">
+              <Link to="/">
                 Home
               </Link>
-              <Link to="/shop" className="hover:text-gray-500">
+              <Link to="/shop">
                 Shop
               </Link>
-              <Link to="/about-us" className="hover:text-gray-500">
+              <Link to="/about-us">
                 About Us
               </Link>
-              <Link to="/contact-us" className="hover:text-gray-500">
+              <Link to="/contact-us">
                 Contact Us
               </Link>
             </nav>
@@ -89,10 +89,17 @@ export default function Header({ bgColor, txtColor }) {
             <div className="flex justify-center space-x-3 pb-4">
               {[FiSearch, FiUser, FiShoppingCart].map((Icon, index) => (
                 <div
-                  key={index}
-                  onClick={() => index === 0 && navigate("/search")} // Redirects to search page
-                  className={`bg-${txtColor} text-${bgColor} p-2 rounded-full  cursor-pointer`}
-                >
+                key={index}
+                onClick={() => {
+                  if (index === 0) {
+                    navigate("/search"); // Redirects to search page
+                  } else if (index === 1) {
+                    navigate("/sign-up"); // Redirects to signUp page
+                  }
+                  // No action needed for the shopping cart icon (index 2) for now
+                }}
+                className={`bg-${txtColor} text-${bgColor} p-2 rounded-full cursor-pointer`}
+              >
                   <Icon className="w-5 h-5" />
                 </div>
               ))}

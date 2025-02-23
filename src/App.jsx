@@ -8,11 +8,14 @@ import NewProduct from "./components/NewProduct";
 import RecommendationProduct from "./components/RecommendationProduct";
 import ChooseCategory from "./components/ChooseCategory";
 import BestSellingProduct from "./components/BestSellingProduct";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+// import Header from "./components/Header";
+// import Footer from "./components/Footer";
 import SearchComponent from "./components/SearchComponent";
 import ProductPage from "./components/ProductPage";
 import SingleProductPage from "./components/SingleProductPage";
+import CartPage from "./components/CartPage";
+import CheckoutPage from "./components/CheckoutPage";
+
 function App() {
   return (
     <Router>
@@ -24,6 +27,8 @@ function App() {
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/shop" element={<ProductPage />}/>
         <Route path="/product" element={<SingleProductPage />}/>
+        <Route path="/cart" element={< CartPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/new-product" element={<NewProduct />} />
