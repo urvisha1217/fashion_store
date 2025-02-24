@@ -30,7 +30,7 @@ const ProductPage = () => {
 
   return (
     <>
-      <Header bgColor={"[#103F51]"} txtColor={"white"} />
+      <Header bgColor={"[#103F51]"} txtColor={"white"} logoUrl={"/images/logo2.svg"}/>
       <div className="flex flex-col md:flex-row p-6 bg-gray-50">
         {/* Sidebar */}
         <aside className="w-full md:w-1/4 p-6 bg-white shadow-lg rounded-lg md:sticky top-20">

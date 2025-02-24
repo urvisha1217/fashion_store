@@ -11,7 +11,7 @@ import Footer from "./Footer";
 const Home = () => {
   return (
     <>
-    <Header bgColor={"white"} txtColor={"[#103F51]"} />
+    <Header bgColor={"white"} txtColor={"[#103F51]"} logoUrl={"/images/logo.svg"} />
     <HeroSection />
     <NewProduct />
     <RecommendationProduct />

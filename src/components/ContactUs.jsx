@@ -5,7 +5,7 @@ import Footer from "./Footer";
 const ContactUs = () => {
   return (
     <>
-    <Header bgColor={"[#103F51]"} txtColor={"white"} />
+    <Header bgColor={"[#103F51]"} txtColor={"white"} logoUrl={"/images/logo2.svg"}/>
     <section className="xl:w-[80%] sm:w-full mx-auto px-4 sm:px-10 xl:px-6 py-10">
       <h2 className="text-3xl font-bold text-[#103F51]"><span className="border-b">Contact</span> Us</h2>
       <p className="text-gray-400 mt-2 max-w-2xl">

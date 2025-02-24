@@ -5,7 +5,7 @@ import Header from "./Header";
 const AboutUs = () => {
   return (
     <>
-    <Header bgColor={"[#103F51]"} txtColor={"white"} />    
+    <Header bgColor={"[#103F51]"} txtColor={"white"} logoUrl={"/images/logo2.svg"} />    
     <section className="w-full bg-white py-8 px-4 md:px-12 md:py-14 lg:px-20">
       <div className="max-w-screen-xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-10">
         {/* Left Image */}

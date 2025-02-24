@@ -36,7 +36,7 @@ const CartPage = () => {
 
   return (
     <>
-        <Header bgColor={"[#103F51]"} txtColor={"white"} />    
+        <Header bgColor={"[#103F51]"} txtColor={"white"} logoUrl={"/images/logo2.svg"} />    
 
     <div className="lg:w-[92%] mx-auto p-3 lg:p-6 text-[#103F51]">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

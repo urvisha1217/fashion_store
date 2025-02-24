@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FiSearch, FiUser, FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function Header({ bgColor, txtColor }) {
+export default function Header({ bgColor, txtColor,logoUrl }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -15,7 +15,7 @@ export default function Header({ bgColor, txtColor }) {
         <div className="container mx-auto flex justify-between items-center px-4 md:px-8">
           {/* Logo */}
           <div className="lg:text-2xl font-extrabold md:text-xl">
-            <span>SHRUTIK</span> <span className=" font-semibold">SOJITRA</span>
+          <img src={logoUrl} alt="logo" className="w-20 h-20 object-cover" />
           </div>
 
           {/* Desktop Navigation */}

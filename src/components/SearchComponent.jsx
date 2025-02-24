@@ -10,7 +10,7 @@ const SearchComponent = () => {
       {/* Close Button */}
       <button
         onClick={() => navigate(-1)}
-        className="absolute top-4 left-4 md:left-8 bg-[#103F51] text-white p-2 md:p-3 rounded-full"
+        className="absolute md:top-10 top-4 left-4 lg:left-[18%] bg-[#103F51] text-white p-2 md:p-3 rounded-full"
       >
         <FiX size={18} />
       </button>

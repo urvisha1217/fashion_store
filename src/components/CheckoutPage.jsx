@@ -6,7 +6,7 @@ import Header from "./Header";
 const CheckoutPage = () => {
   return (
     <>
-      <Header bgColor={"[#103F51]"} txtColor={"white"} />
+      <Header bgColor={"[#103F51]"} txtColor={"white"} logoUrl={"/images/logo2.svg"} />
       <div className="max-w-7xl mx-auto p-4 mt-4 text-[#103F51]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Left Side - Cart Items */}
