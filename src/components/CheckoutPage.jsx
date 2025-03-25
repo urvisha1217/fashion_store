@@ -6,7 +6,12 @@ import Header from "./Header";
 const CheckoutPage = () => {
   return (
     <>
-      <Header bgColor={"[#103F51]"} txtColor={"white"} logoUrl={"/images/logo2.svg"} />
+      <Header
+        txtColor={"[#103F51]"}
+        bgColor={"white"}
+        logoUrl={"/images/logo2.png"}
+      />
+
       <div className="max-w-7xl mx-auto p-4 mt-4 text-[#103F51]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Left Side - Cart Items */}
@@ -38,15 +43,16 @@ const CheckoutPage = () => {
                     typesetting industry.
                   </p>
                   <div className="flex items-center justify-between md:justify-start border border-[#103F51] font-semibold px-3 py-2 rounded-full shadow-sm w-full md:w-auto max-w-[150px]">
-  <button className="px-4 text-lg bg-gray-200 hover:bg-gray-300 rounded-l-full focus:outline-none active:scale-95 transition">
-    -
-  </button>
-  <span className="px-6 text-base text-center w-12 select-none">1</span>
-  <button className="px-4 text-lg bg-gray-200 hover:bg-gray-300 rounded-r-full focus:outline-none active:scale-95 transition">
-    +
-  </button>
-</div>
-
+                    <button className="px-4 text-lg hover:bg-gray-300 rounded-l-full focus:outline-none active:scale-95 transition">
+                      -
+                    </button>
+                    <span className="px-6 text-base text-center w-12 select-none">
+                      1
+                    </span>
+                    <button className="px-4 text-lg  hover:bg-gray-300 rounded-r-full focus:outline-none active:scale-95 transition">
+                      +
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -146,7 +152,7 @@ const CheckoutPage = () => {
         </div>
       </div>
       <Contact />
-   <Footer />
+      <Footer />
     </>
   );
 };

@@ -11,7 +11,8 @@ const SingleProductPage = () => {
 
   return (
     <>
-      <Header bgColor={"[#103F51]"} txtColor={"white"} logoUrl={"/images/logo2.svg"}/>
+          <Header txtColor={"[#103F51]"} bgColor={"white"} logoUrl={"/images/logo2.png"} />
+      
 
       <div className="container mx-auto p-4 sm:p-6">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-6 items-start">

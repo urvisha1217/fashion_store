@@ -1,39 +1,128 @@
-import Header from "./Header";
+import { useState } from "react";
+import { FiSearch, FiUser, FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function HeroSection() {
-    return (
-      <>  
-      <section className="bg-[#103F51] text-white md:pt-24 md:pb-16  py-10">
-      <div className="container flex flex-col-reverse gap-8 sm:mb-8 md:flex-row items-center px-6 md:px-14 w-[90%] max-w-[1600px]  mx-auto">
-        {/* Left Content */}
-        <div className="md:w-2/3 text-center md:text-left space-y-6">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
-            Elevate Style, <br /> Embrace Story
-          </h1>
-          <p className="text-md sm:text-lg  text-gray-300 leading-relaxed pr-4">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of
-            type.
-          </p>
-          <button className="bg-white text-[#103F51] px-6 py-2 rounded-md font-semibold shadow-md hover:bg-gray-200 transition">
-            Shop Now
-          </button>
-        </div>
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const [hover, setHover] = useState(false);
 
-        {/* Right Image */}
-        <div className="md:w-1/3 flex justify-center md:justify-end">
-          <div className="bg-white rounded-t-full overflow-hidden w-60 h-90  md:w-[26rem] md:h-[35rem] flex items-center">
-            <img
-              src="/images/heroImg.png"
-              alt="Fashion Model"
-              className="w-full h-full object-cover "
-            />
-          </div>
+  return (
+    <>
+      <header
+        className="relative bg-cover  h-screen "
+        style={{ backgroundImage: "url('/images/s1.png') " }}
+      >
+        <div
+          className={`bg-[#103F51] text-white text-center py-4 text-lg border-b`}
+        >
+          COD Available
         </div>
-      </div>
-    </section>
+        <header
+          className={`border-b border-gray-200 w-full py-4 lg:text-xl text-white md:text-lg bg-transparent   top-0 left-0 right-0 z-50 hover:bg-white hover:text-black `}
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+        >
+          <div className="container mx-auto flex justify-between items-center px-4 md:px-8">
+            {/* Centered Logo and Navigation */}
+            <div className="flex-1 flex justify-center pl-[8%]">
+              <div className="flex flex-col items-center">
+                {/* <img src="/images/logo1.png" alt="BITAFAB Logo" className="h-full mb-4" /> */}
+                <img
+                  src={hover ? "/images/logo2.png" : "/images/logo1.png"}
+                  alt="BITAFAB Logo"
+                  className="h-full mb-4 transition-all duration-300"
+                />
+                <nav className="hidden md:flex space-x-12 pb-2">
+                  <Link to="/" className="hover:text-gray-500">
+                    Home
+                  </Link>
+                  <Link to="/shop" className="hover:text-gray-500">
+                    Shop
+                  </Link>
+                  <Link to="/reviews" className="hover:text-gray-500">
+                    Reviews
+                  </Link>
+                  <Link to="/about-us" className="hover:text-gray-500">
+                    About Us
+                  </Link>
+                  <Link to="/contact-us" className="hover:text-gray-500">
+                    Contact Us
+                  </Link>
+                </nav>
+              </div>
+            </div>
+
+            {/* Search, User, and Cart Icons */}
+            <div className="hidden md:flex space-x-3">
+              {[FiSearch, FiUser, FiShoppingCart].map((Icon, index) => (
+                <div
+                  key={index}
+                  onClick={() => {
+                    if (index === 0) {
+                      navigate("/search");
+                    } else if (index === 1) {
+                    //  const authToken = sessionStorage.getItem("authToken");
+                    //  if (authToken) {
+                        navigate("/user"); // Redirect to user profile if session exists
+                    //  } else {
+                    //    navigate("/sign-in"); // Redirect to login if no session found
+                    //  }
+                    } else if (index === 2) {
+                      navigate("/cart");
+                    }
+                  }}
+                  className={`bg-white text-[#103F51] p-2 rounded-full cursor-pointer`}
+                >
+                  <Icon className="lg:w-5 lg:h-5 md:w-4 md:h-4" />
+                </div>
+              ))}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <button onClick={() => setMenuOpen(!menuOpen)}>
+                {menuOpen ? (
+                  <FiX className="w-7 h-7" />
+                ) : (
+                  <FiMenu className="w-7 h-7" />
+                )}
+              </button>
+            </div>
+          </div>
+
+          {menuOpen && (
+            <div
+              className={`md:hidden absolute top-16 left-0 w-full bg-${bgColor} shadow-lg transition-all `}
+            >
+              <nav className="flex md:flex-row flex-col  items-center space-y-4 p-4 ">
+                <Link to="/">Home</Link>
+                <Link to="/shop">Shop</Link>
+                <Link to="/about-us">About Us</Link>
+                <Link to="/contact-us">Contact Us</Link>
+              </nav>
+
+              <div className="flex justify-center space-x-3 pb-4">
+                {[FiSearch, FiUser, FiShoppingCart].map((Icon, index) => (
+                  <div
+                    key={index}
+                    onClick={() => {
+                      if (index === 0) {
+                        navigate("/search");
+                      } else if (index === 1) {
+                        navigate("/sign-up");
+                      }
+                    }}
+                    className={`bg-${txtColor} text-${bgColor} p-2 rounded-full cursor-pointer`}
+                  >
+                    <Icon className="w-5 h-5" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </header>
+      </header>
     </>
-    );
-  }
-  
+  );
+}

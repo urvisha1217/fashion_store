@@ -11,14 +11,14 @@ import Footer from "./Footer";
 const Home = () => {
   return (
     <>
-    <Header bgColor={"white"} txtColor={"[#103F51]"} logoUrl={"/images/logo.svg"} />
     <HeroSection />
+    {/* <Header bgColor={"[#103F51]"} txtColor={"white"} logoUrl={"/images/logo1.png"}  /> */}
     <NewProduct />
     <RecommendationProduct />
     <ChooseCategory />
     <BestSellingProduct />
     <Contact />
-    <Footer />
+    <Footer /> 
     </>
   );
 };

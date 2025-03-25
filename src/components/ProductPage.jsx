@@ -6,12 +6,12 @@ import Contact from "./Cotact";
 import { useNavigate } from "react-router-dom";
 
 const ProductPage = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState("Jewelry");
   const [priceRange, setPriceRange] = useState([1500, 5500]);
   const [sortOrder, setSortOrder] = useState("Best Rating");
 
-  const categories = ["Kids", "Men", "Women", "Jewelry"];
+  const categories = ["Kids", "Men", "Women"];
   const sortOptions = [
     "Most Popular",
     "Best Rating",
@@ -30,13 +30,23 @@ const ProductPage = () => {
 
   return (
     <>
-      <Header bgColor={"[#103F51]"} txtColor={"white"} logoUrl={"/images/logo2.svg"}/>
+      <Header
+        txtColor={"[#103F51]"}
+        bgColor={"white"}
+        logoUrl={"/images/logo2.png"}
+      />
+
       <div className="flex flex-col md:flex-row p-6 bg-gray-50">
         {/* Sidebar */}
         <aside className="w-full md:w-1/4 p-6 bg-white shadow-lg rounded-lg md:sticky top-20">
-          <h2 className="font-semibold text-lg mb-3 text-gray-900">Categories</h2>
+          <h2 className="font-semibold text-lg mb-3 text-gray-900">
+            Categories
+          </h2>
           {categories.map((category, index) => (
-            <label key={index} className="flex items-center mb-2 cursor-pointer">
+            <label
+              key={index}
+              className="flex items-center mb-2 cursor-pointer"
+            >
               <input
                 type="checkbox"
                 checked={selectedCategory === category}
@@ -48,7 +58,9 @@ const ProductPage = () => {
           ))}
 
           {/* Price Range */}
-          <h2 className="font-semibold text-lg mt-6 mb-3 text-gray-900">Price Range</h2>
+          <h2 className="font-semibold text-lg mt-6 mb-3 text-gray-900">
+            Price Range
+          </h2>
           <div className="relative w-full">
             <Range
               step={100}
@@ -62,7 +74,9 @@ const ProductPage = () => {
                   <div
                     className="absolute top-0 left-0 h-2 bg-blue-500 rounded-md"
                     style={{
-                      width: `${((priceRange[1] - priceRange[0]) / (10000 - 500)) * 100}%`,
+                      width: `${
+                        ((priceRange[1] - priceRange[0]) / (10000 - 500)) * 100
+                      }%`,
                       left: `${((priceRange[0] - 500) / (10000 - 500)) * 100}%`,
                     }}
                   />
@@ -82,14 +96,23 @@ const ProductPage = () => {
             />
           </div>
           <div className="flex justify-between lg:text-sm mt-2 m md:text-xs gap-1">
-            <span className="px-3 py-1 border rounded-md">₹{priceRange[0]}.00</span>
-            <span className="px-3 py-1 border rounded-md">₹{priceRange[1]}.00</span>
+            <span className="px-3 py-1 border rounded-md">
+              ₹{priceRange[0]}.00
+            </span>
+            <span className="px-3 py-1 border rounded-md">
+              ₹{priceRange[1]}.00
+            </span>
           </div>
 
           {/* Sort Order */}
-          <h2 className="font-semibold text-lg mt-6 mb-3 text-gray-900">Sort Order</h2>
+          <h2 className="font-semibold text-lg mt-6 mb-3 text-gray-900">
+            Sort Order
+          </h2>
           {sortOptions.map((option) => (
-            <label key={option} className="flex items-center mb-2 cursor-pointer">
+            <label
+              key={option}
+              className="flex items-center mb-2 cursor-pointer"
+            >
               <input
                 type="radio"
                 checked={sortOrder === option}
@@ -105,10 +128,12 @@ const ProductPage = () => {
         <main className="w-full md:w-3/4 p-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {products.map((product, index) => (
-              <div key={index} 
-              onClick={() => navigate(`/product`)}
-              //onClick={() => navigate(`/product/${product.id}`)}
-              className="bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300">
+              <div
+                key={index}
+                onClick={() => navigate(`/product`)}
+                //onClick={() => navigate(`/product/${product.id}`)}
+                className="bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300"
+              >
                 {/* Product Image */}
                 <img
                   src={product.image}
@@ -119,9 +144,13 @@ const ProductPage = () => {
                 {/* Product Details */}
                 <div className="p-4">
                   <div className="flex justify-between items-center">
-                    <h3 className="text-base sm:text-lg font-semibold text-gray-900">{product.name}</h3>
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-900">
+                      {product.name}
+                    </h3>
                     <div className="text-right">
-                      <span className="text-lg font-bold text-gray-900">{product.price}</span>
+                      <span className="text-lg font-bold text-gray-900">
+                        {product.price}
+                      </span>
                     </div>
                   </div>
                   <div className="flex justify-between text-sm text-gray-500">
